@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSL Checker WebApp</title>
+</head>
+<body>
+    <h1>SSL Checker WebApp</h1>
+    <form method="post">
+        <label for="hosts">Enter Hosts (comma-separated):</label>
+        <input type="text" name="hosts" id="hosts" required>
+        <br>
+        <input type="checkbox" name="analyze" id="analyze">
+        <label for="analyze">Enable SSL Security Analysis</label>
+        <br>
+        <input type="checkbox" name="verbose" id="verbose">
+        <label for="verbose">Enable Verbose Output</label>
+        <br>
+        <button type="submit">Run SSL Checker</button>
+    </form>
+    
+    {% if result %}
+        <h2>SSL Checker Results</h2>
+        <pre>{{ result | safe }}</pre>
+    {% endif %}
+</body>
+</html>
